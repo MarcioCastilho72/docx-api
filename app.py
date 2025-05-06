@@ -5,11 +5,11 @@ import os
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["POST"])
 def index():
     return jsonify({"message": "Serviço de extração de texto .docx ativo."})
 
-@app.route("/extract-text", methods=["POST"])
+@app.route("/extract-text", methods=["GET"])
 def extract_text():
     if "file" not in request.files:
         return jsonify({"error": "Nenhum arquivo enviado."}), 400
